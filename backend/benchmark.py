@@ -35,17 +35,17 @@ class BenchmarksResource(Resource):
         new_benchmark.save()
         return new_benchmark
 
-# @benchmark_ns.route('/benchmark/<id:int>')
-# class BenchmarkReport(Resource):
-#     @benchmark_ns.marshal_with(benchmark_model)
-#     def get(self,id):
-#         benchmark = Benchmark.query.get_or_404(id)
-#         return benchmark
+@benchmark_ns.route('/benchmark/<int:id>')
+class BenchmarkReport(Resource):
+    @benchmark_ns.marshal_with(benchmark_model)
+    def get(self,id):
+        benchmark = Benchmark.query.get_or_404(id)
+        return benchmark
 
-#     @benchmark_ns.marshal_with(benchmark_model)
-#     def put(self,id):
-#         benchmark_to_update = Benchmark.query.get_or_404(id)
-#         data = request.get_json()
-#         benchmark_to_update.update(data.get('benchmark_id'),data.get('benchmark_description'))
-#         return benchmark_to_update
+    @benchmark_ns.marshal_with(benchmark_model)
+    def put(self,id):
+        benchmark_to_update = Benchmark.query.get_or_404(id)
+        data = request.get_json()
+        benchmark_to_update.update(data.get('benchmark_id'),data.get('benchmark_description'))
+        return benchmark_to_update
 

@@ -19,8 +19,10 @@ class Benchmark(db.Model):
         db.session.add(self)
         db.session.commit()
 
-    def update(self,description):
-        self.Benchmark_description = description
+    def update(self,benchmark_id,benchmark_description):
+        print(benchmark_id+""+"_"+benchmark_description)
+        self.benchmark_id = benchmark_id
+        self.benchmark_description = benchmark_description
         db.session.commit()
     
     def delete(self):
