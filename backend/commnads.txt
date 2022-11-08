@@ -1,0 +1,6 @@
+pip install flask flask_restx flask_jwt_extended
+pip install python_decouple
+pip install  Werkzeug==2.1.2
+pip install  Flask==2.1.2
+pip install flask-sqlalchemy==2.5.1
+pip install Flask-Cors==3.0.10
