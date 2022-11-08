@@ -28,3 +28,34 @@ class Benchmark(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+
+"""
+class Rule
+id:int
+name:String
+description:String
+config:String
+"""
+class Rule(db.Model):
+    id = db.Column(db.Integer(), primary_key=True)
+    name = db.Column(db.String(),nullable=False)
+    description = db.Column(db.String(),nullable=False)
+    config = db.Column(db.String(),nullable=False)
+
+    def __repr__(self) -> str:
+        return f"< Rule {self.id}>"
+    
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+    
+    def update(self,name,description,config):
+        self.name = name
+        self.description = description
+        self.config = config
+        db.session.commit()
+
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
