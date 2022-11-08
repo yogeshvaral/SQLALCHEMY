@@ -4,3 +4,10 @@ pip install  Werkzeug==2.1.2
 pip install  Flask==2.1.2
 pip install flask-sqlalchemy==2.5.1
 pip install Flask-Cors==3.0.10
+pip install Flask-Script==2.0.5
+
+
+Flask migration helper link - https://realpython.com/flask-by-example-part-2-postgres-sqlalchemy-and-alembic/
+python manage.py db init
+python manage.py db migrate
+python manage.py db upgrade

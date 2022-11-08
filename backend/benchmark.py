@@ -17,3 +17,4 @@ benchmark_model = benchmark_ns.model(
 class HelloResource(Resource):
     def get(self):
         return {"Message": "HelloWorld"}
+
