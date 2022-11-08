@@ -9,8 +9,8 @@ Benchmark Description:String
 
 class Benchmark(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
-    Benchmark_id = db.Column(db.String(),primary_key=True, nullable=False)
-    Benchmark_description = db.Column(db.String(), nullable=False)
+    benchmark_id = db.Column(db.String(),nullable=False)
+    benchmark_description = db.Column(db.String(), nullable=False)
 
     def __repr__(self) -> str:
         return f"< Benchmark {self.Benchmark_id}>"
