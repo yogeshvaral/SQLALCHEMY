@@ -20,7 +20,8 @@ class RulesResource(Resource):
     def get(self):
         rules = Rule.query.all()
         return rules
-
+        
+    @jwt_required()
     @rule_ns.marshal_with(rule_model)
     def post(self):
         data = request.get_json()
@@ -30,11 +31,13 @@ class RulesResource(Resource):
 
 @rule_ns.route('/rule/<int:id>')
 class RuleResource(Resource):
+    @jwt_required()
     @rule_ns.marshal_with(rule_model)
     def get(self,id):
         rule = Rule.query.get_or_404(id)
         return rule
-        
+
+    @jwt_required()    
     @rule_ns.marshal_with(rule_model)
     def put(self,id):
         rule_to_update = Rule.query.get_or_404(id)

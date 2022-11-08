@@ -23,7 +23,7 @@ class BenchmarksResource(Resource):
     def get(self):
         benchmarks = Benchmark.query.all()
         return benchmarks
-
+    @jwt_required()
     @benchmark_ns.marshal_with(benchmark_model)
     def post(self):
         data = request.get_json()
@@ -38,10 +38,11 @@ class BenchmarksResource(Resource):
 @benchmark_ns.route('/benchmark/<int:id>')
 class BenchmarkReport(Resource):
     @benchmark_ns.marshal_with(benchmark_model)
+    @jwt_required()
     def get(self,id):
         benchmark = Benchmark.query.get_or_404(id)
         return benchmark
-
+    @jwt_required()
     @benchmark_ns.marshal_with(benchmark_model)
     def put(self,id):
         benchmark_to_update = Benchmark.query.get_or_404(id)

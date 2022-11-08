@@ -7,6 +7,7 @@ from flask_jwt_extended import JWTManager
 from model import Benchmark,Rule
 from benchmark import benchmark_ns
 from rule import rule_ns
+from auth import auth_ns
 
 def create_app(config):
     app = Flask(__name__)
@@ -17,6 +18,7 @@ def create_app(config):
     JWTManager(app=app)
     api.add_namespace(benchmark_ns)
     api.add_namespace(rule_ns)
+    api.add_namespace(auth_ns)
 
     @app.shell_context_processor
     def make_shell_context():
